@@ -7,4 +7,4 @@
 /static
 *~
 */migrations
-dev.db
+#dev.db
