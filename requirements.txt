@@ -1,1 +1,2 @@
 Mezzanine==4.0.1
+mezzanine-events==0.1.4
