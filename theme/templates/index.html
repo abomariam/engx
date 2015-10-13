@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+{% blocktrans %}
+<!-- slider -->
+<br/>
+<div class="container slider_bg">
+	<div id="da-slider" class="da-slider text-center">
+		<div class="da-slide">
+				<font color="#33CCCC"><h2>Education portal</h2></font>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
+				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
+		</div>
+		<div class="da-slide">
+				<font color="#33CCCC"><h2>Online educations</h2></font>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
+				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
+		</div>
+		<div class="da-slide">
+				<font color="#33CCCC"><h2>Education portal</h2></font>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
+				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
+		</div>
+		<div class="da-slide">
+				<font color="#33CCCC"><h2>Online educations</h2></font>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
+				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
+		</div>
+	</div>
+</div>
+
+{% endblocktrans %}
+{% endblock %}
+
+{% block EventsNews %}
+<!-- events and news -->
+<div class="main_bg">
+	<div class="container" >
+		<div class="row col-md-9 content_left" >
+			<font color="#33CCCC"> <h3> &nbsp &nbsp &nbsp &nbsp &nbsp Events</h3></font>
+			<br/><br/>
+			<div class="col-md-6">				
+				<div class="cau_left">
+					<img class="img-responsive img-circle" src="{% static "images/c3.jpg" %}"/>
+					<div class="cau_left">
+							<font color="#33CCCC"><h4><a href="#"> Web Design Diploma</a></h4></font>
+							<h5><b>Date:</b> Oct.25.2015<br/>
+							<b>Location:</b> Assuit university<br/>
+							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
+							</h5>
+						</div>
+				</div>
+			</div>
+			<div class="col-md-6">				
+				<div class="cau_left">
+					<img class="img-responsive img-circle" src="{% static "images/c4.jpg" %}"/>
+					<div class="cau_left">
+							<font color="#33CCCC"><h4><a href="#"> Social Media Diploma</a></h4></font>
+							<h5><b>Date:</b> Oct.25.2015<br/>
+							<b>Location:</b> Assuit university<br/>
+							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
+							</h5>
+						</div>
+				</div>
+			</div>
+			<br/><br/><br/>
+			
+			<div class="col-md-6">				
+				<div class="cau_left">
+					<img class="img-responsive img-circle" src="{% static "images/c1.jpg" %}"/>	
+					<div class="cau_left">
+							<h4><a href="#"> Graphic Design Diploma</a></h4>
+							<h5><b>Date:</b> Oct.25.2015<br/>
+							<b>Location:</b> Assuit university<br/>
+							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
+							</h5>
+					</div>
+				</div>
+			</div>	
+			<div class="col-md-6">				
+				<div class="cau_left">
+					<img class="img-responsive img-circle" src="{% static "images/c2.jpg" %}"/>
+					<div class="cau_left">
+							<h4><a href="#"> AutoCad Diploma</a></h4>
+							<h5><b>Date:</b> Oct.25.2015<br/>
+							<b>Location:</b> Assuit university <br/>
+							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
+							</h5>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				&nbsp &nbsp &nbsp &nbsp <h5><a href="#">see more events</a></h5>
+			</div>
+		</div>
+		
+		<div class="row col-md-3 content_right new_style"   >
+			<font color="#33CCCC"><h3> News</h3></font>			
+			<br/>
+
+			<div name="news" class=" news1">
+			    <img src="{% static "images/news.jpg" %}" width="80" height="80" align="left" class="news_image">
+				<div  class="news_text">
+				  <font size="3"> 
+					This is some text. This is some text... <a href="#"> see more</a> 
+				  </font>
+				</div> 
+			</div>
+
+			<br/><br/>	
+			<div name="news" class=" news2">
+				<img src="{% static "images/news.jpg" %}" width="80" height="80" align="left" class="news_image">			  
+				<div  class="news_text">
+					<font size="3"> 
+							This is some text. This is some text... <a href="#"> see more</a> 
+						</font>
+					</div>
+				</div>	
+			<br/><br/>
+			
+			<div name="news" class=" news3">
+				<img src="{% static "images/news.jpg" %}" width="80" height="80" align="left" class="news_image">			  
+					<div  class="news_text">
+						<font size="3"> 
+								This is some text. This is some text... <a href="#"> see more</a> 
+						</font>
+					</div>
+			</div>
+
+			<br/><br/>
+			<div name="news" class=" news4">
+				<img src="{% static "images/news.jpg" %}" width="80" height="80" align="left" class="news_image">			  
+					<div  class="news_text">
+						<font size="3"> 
+								This is some text. This is some text... <a href="#"> see more</a> 
+						</font>
+					</div>
+			</div>		
+			<br/><br/>	
+
+				
+		</div>
+	</div>	
+</div>
+
+
+{% endblock %}

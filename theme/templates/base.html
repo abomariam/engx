@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+<meta name="description" content="{% block meta_description %}{% endblock %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+<link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+{% ifinstalled mezzanine.blog %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+{% endifinstalled %}
+
+{% compress css %}
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel='stylesheet' href="{% static "css/bootstrap.min.css"%}" type='text/css' />
+<!-- <link rel="stylesheet" href="{% static "css/mezzanine.css" %}"> -->
+<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+<link rel="stylesheet" href="{% static "fonts/css/font-awesome.min.css" %}">
+
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+{% endif %}
+{% ifinstalled cartridge.shop %}
+<link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+{% endif %}
+{% endifinstalled %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<link rel="stylesheet" href="{% static "css/slider.css" %}">
+{% block extra_css %}
+<link href="{% static "css/owl.carousel.css"%}" rel="stylesheet">
+{% endblock %}
+{% endcompress %}
+
+{% compress js %}
+<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/bootstrap-extras.js" %}"></script>
+<script type="text/javascript" src= "{% static "js/jquery.min.js" %} " ></script>
+{% block extra_js %}
+<script type="text/javascript" src="{% static "js/jquery.min.js" % }"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
+<script type="text/javascript" src="{% static "js/jquery.min.js" %}" ></script>
+<script type="text/javascript" src="{% static "js/bootstrap.js" %}" ></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/modernizr.custom.28468.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery.cslider.js"%}" ></script>
+<script src="{% static "js/owl.carousel.js" %}"></script>
+	<script type="text/javascript">
+			$(function() {
+
+				$('#da-slider').cslider({
+					autoplay : true,
+					bgincrement : 450
+				});
+
+			});
+		</script>
+
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+{% endblock %}
+
+{% endcompress %}
+
+<!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+{% block extra_head %}
+<style>
+				p.padding {
+				padding-left: 0.3cm;
+			}
+</style>
+{% endblock %}
+</head>
+
+<body id="{% block body_id %}">
+	<div class="header_bg">
+		<div class="container">
+			<div class="row header">
+				<div class="logo navbar-left">
+					<a href="index.html"><img class="img-responsive img-circle" width="90" src="{% static "images/logo.jpg" %}" /></a>
+				</div>
+				<div class="logo navbar-left">
+					<h1><a href="index.html"><font color="#33CCCC">EngX</font></a></h1>
+				</div>
+				<div class="h_search navbar-right">
+					<form>
+						<input type="text" class="text" value="Enter text here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter text here';}">
+						<input type="submit" value="search">
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row h_menu">
+		<nav class="navbar navbar-default navbar-left" role="navigation">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="index.html">Home</a></li>
+		        <li><a href="technology.html">Services</a></li>
+		        <li><a href="about.html">About</a></li>
+		        <li><a href="blog.html">Blog</a></li>
+		        <li><a href="contact.html">Contact</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		    <!-- start soc_icons -->
+		</nav>
+		<div class="soc_icons navbar-right">
+			<ul class="list-unstyled text-center">
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			</ul>	
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+<div class="row"> 
+	<div class="container">
+		{% block main %}{% endblock %}
+	</div>
+</div>
+
+<div class="row"> 
+	<div class="container">
+		{% block EventsNews %}{% endblock %}
+	</div>
+</div>
+
+<footer>
+<div class="footer_bg"><!-- start footer -->
+	<div class="container">
+		<div class="row  footer">
+			<div class="col-md-6 content_left">
+				<img src="{% static "images/pic1.jpg" %}" alt="" class="img-responsive">
+			</div>
+			<div class="col-md-6 content_right">
+				<h4>Our vision</h4>
+				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. </p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+				<h4>Our Mission</h4>
+				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum.. </p>
+				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
+			</div>
+			<div class="copy text-center">
+				<p class="link"><span>&#169; All rights reserved | mail to&nbsp;<a href="#"> engx@info.com</a></span></p>
+			</div>
+		</div>
+	</div>
+</div>
+</footer>
+
+{% include "includes/footer_scripts.html" %}
+
+</body>
+</html>
