@@ -212,6 +212,7 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
+    "theme",
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
@@ -221,8 +222,10 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "mezzanine_events",
-    # "mezzanine.accounts",
+    "mezzanine_agenda",
+    # "mezzanine_events",
+    "mezzanine.accounts",
+    "engx_user",
     # "mezzanine.mobile",
 )
 
@@ -320,3 +323,21 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Eng.Mahmoud.A.Mostafa@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+
+ACCOUNTS_NO_USERNAME = True
+ACCOUNTS_VERIFICATION_REQUIRED = True
+
+PAGES_MENU_SHOW_ALL = False
+
+
+AUTH_PROFILE_MODULE = "engx_user.UserProfile"
+ACCOUNTS_PROFILE_VIEWS_ENABLED = True
