@@ -6,7 +6,7 @@ def home(request):
     context = {}
 
     context['events'] = Event.objects.all()
-
+    context['hide_right'] = True
 
 
     return render(request,'index.html',context)

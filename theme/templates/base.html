@@ -105,6 +105,7 @@
 
 <body id="{% block body_id %}">
 	<div class="header_bg">
+    {% include 'accounts/includes/user_panel_nav.html' %}
 		<div class="container">
 			<div class="row header">
 				<div class="logo navbar-left">
@@ -175,9 +176,31 @@
 {% endblock %}
 
 <div class="row"> 
-	<div class="container">
-		{% block main %}{% endblock %}
-	</div>
+    <div class="container">
+    <div class="{% if not hide_right %}col-md-9{% endif %}">
+		    {% block main %}{% endblock %}
+	    </div>
+
+    {% if not hide_right %}
+
+        <div class="col-md-3 right">
+            {% nevercache %}
+            {% include "includes/language_selector.html" %}
+            {% include "includes/user_panel.html" %}
+            {% endnevercache %}
+            <div class="panel panel-default">
+            <div class="panel-body">
+            {% block right_panel %}
+            {% ifinstalled mezzanine.twitter %}
+            {% include "twitter/tweets.html" %}
+            {% endifinstalled %}
+            {% endblock %}
+            </div>
+            </div>
+        </div>
+
+    {% endif %}
+    </div>
 </div>
 
 <div class="row"> 
@@ -187,25 +210,8 @@
 </div>
 
 <footer>
-<div class="footer_bg"><!-- start footer -->
-	<div class="container">
-		<div class="row  footer">
-			<div class="col-md-6 content_left">
-				<img src="{% static "images/pic1.jpg" %}" alt="" class="img-responsive">
-			</div>
-			<div class="col-md-6 content_right">
-				<h4>Our vision</h4>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum. </p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-				<h4>Our Mission</h4>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum.. </p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-			</div>
-			<div class="copy text-center">
-				<p class="link"><span>&#169; All rights reserved | mail to&nbsp;<a href="#"> engx@info.com</a></span></p>
-			</div>
-		</div>
-	</div>
+<div class="copy text-center">
+    <p class="link"><span>&#169; All rights reserved | mail to&nbsp;<a href="#"> engx@info.com</a></span></p>
 </div>
 </footer>
 

@@ -25,7 +25,7 @@
 </div>
 <div class="profile-content col-md-9">
     <h2>{{ profile_user.get_full_name }}</h2>
-
+    <h2>{{ profile_user.get_first_name }}</h2>
 
     {% if profile_user.profile.cv %}
         <h3><a href="{{ profile_user.profile.cv.url }}" target="_blank">Show CV</a> </h3>
