@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
+{% load mezzanine_tags event_tags keyword_tags disqus_tags %}
 
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
@@ -48,62 +49,29 @@
 		<div class="row col-md-9 content_left" >
 			<font color="#33CCCC"> <h3> &nbsp &nbsp &nbsp &nbsp &nbsp Events</h3></font>
 			<br/><br/>
-			<div class="col-md-6">				
-				<div class="cau_left">
-					<img class="img-responsive img-circle" src="{% static "images/c3.jpg" %}"/>
-					<div class="cau_left">
-							<font color="#33CCCC"><h4><a href="#"> Web Design Diploma</a></h4></font>
-							<h5><b>Date:</b> Oct.25.2015<br/>
-							<b>Location:</b> Assuit university<br/>
-							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
-							</h5>
-						</div>
-				</div>
-			</div>
-			<div class="col-md-6">				
-				<div class="cau_left">
-					<img class="img-responsive img-circle" src="{% static "images/c4.jpg" %}"/>
-					<div class="cau_left">
-							<font color="#33CCCC"><h4><a href="#"> Social Media Diploma</a></h4></font>
-							<h5><b>Date:</b> Oct.25.2015<br/>
-							<b>Location:</b> Assuit university<br/>
-							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
-							</h5>
-						</div>
-				</div>
-			</div>
-			<br/><br/><br/>
-			
-			<div class="col-md-6">				
-				<div class="cau_left">
-					<img class="img-responsive img-circle" src="{% static "images/c1.jpg" %}"/>	
-					<div class="cau_left">
-							<h4><a href="#"> Graphic Design Diploma</a></h4>
-							<h5><b>Date:</b> Oct.25.2015<br/>
-							<b>Location:</b> Assuit university<br/>
-							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
-							</h5>
-					</div>
-				</div>
-			</div>	
-			<div class="col-md-6">				
-				<div class="cau_left">
-					<img class="img-responsive img-circle" src="{% static "images/c2.jpg" %}"/>
-					<div class="cau_left">
-							<h4><a href="#"> AutoCad Diploma</a></h4>
-							<h5><b>Date:</b> Oct.25.2015<br/>
-							<b>Location:</b> Assuit university <br/>
-							<b>Description:</b> Lorem ipsum dolor amet,consectetur adipisicing elit, sed do eiusmod... <a href="#"> see more</a>
-							</h5>
-					</div>
-				</div>
-			</div>
-			<br/>
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				&nbsp &nbsp &nbsp &nbsp <h5><a href="#">see more events</a></h5>
-			</div>
+            {% for event in events %}
+            <div class="col-md-6">
+                <div class="cau_left">
+                    {% if event.featured_image %}
+                            <img class="img-responsive img-circle" style="width: 220px; height: 220px;"  src="{{ MEDIA_URL }}{% thumbnail event.featured_image 90 90 %}">
+                    {% else %}
+                        <img class="img-responsive img-circle" src="{% static "images/c3.jpg" %}"/>
+                    {% endif %}
+                    <div class="cau_left">
+                        <font color="#33CCCC"><h4><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h4></font>
+                        <h5>
+                            <b>Start Date:</b>{{ event.start }}<br/>
+                            {% if event.end %}
+                                <b>End Date:</b>{{ event.end }}<br/>
+                            {% endif %}
+                            {% if event.location %}
+                                <b>Location:</b><a href="{% url "event_list_location" event.location.slug %}">{{ event.location }}</a><br/>
+                            {% endif %}
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
 		</div>
 		
 		<div class="row col-md-3 content_right new_style"   >

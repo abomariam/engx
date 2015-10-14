@@ -6,6 +6,7 @@ from django.contrib import admin
 
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
+from theme.views import home
 
 
 admin.autodiscover()
@@ -36,7 +37,7 @@ urlpatterns += patterns('',
     # one homepage pattern, so if you use a different one, comment this
     # one out.
 
-    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    url("^$", home, name="home"),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
