@@ -3913,7 +3913,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-btn {
   margin-top: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 .navbar-btn.btn-sm {
   margin-top: 10px;

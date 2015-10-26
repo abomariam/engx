@@ -105,19 +105,21 @@
 
 <body id="{% block body_id %}">
 	<div class="header_bg">
-    {% include 'accounts/includes/user_panel_nav.html' %}
 		<div class="container">
 			<div class="row header">
-				<div class="logo navbar-left">
-					<a href="index.html"><img class="img-responsive img-circle" width="90" src="{% static "images/logo.jpg" %}" /></a>
+
+				<div class="col-md-3">
+					<a href="index.html"><img class="img-responsive" width="150" src="{% static "images/mylogo.png" %}" /></a>
 				</div>
-				<div class="logo navbar-left">
-					<h1><a href="index.html"><font color="#33CCCC">EngX</font></a></h1>
-				</div>
-				<div class="h_search navbar-right">
+
+				<div class="h_search col-md-6">
                     {% search_form "all" %}
 				</div>
-				<div class="clearfix"></div>
+
+				<div class="col-md-4">
+    				{% include 'accounts/includes/user_panel_nav.html' %}
+				</div>
+
 			</div>
 		</div>
 	</div>
