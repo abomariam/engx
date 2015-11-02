@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.signals import pre_save
+from mezzanine_agenda.models import Event
 import os
 # Create your models here.
 
@@ -22,4 +23,9 @@ class UserProfile(models.Model):
 
         super(UserProfile,self).save(force_insert,force_update,using,update_fields)
 
+class Instructor(models.Model):
+    user = models.ForeignKey("auth.User", related_name='instructor')
+    events = models.ManyToManyField(Event, related_name='instructor')
 
+    def __str__(self):
+        return self.user.get_full_name()

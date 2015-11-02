@@ -103,7 +103,7 @@
 
 </head>
 
-<body id="{% block body_id %}">
+<body id="{% block body_id %}{% endblock %}" >
 	<div class="header_bg">
 		<div class="container">
 			<div class="row header">
@@ -116,7 +116,7 @@
                     {% search_form "all" %}
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-md-4 nav_button">
     				{% include 'accounts/includes/user_panel_nav.html' %}
 				</div>
 
@@ -144,8 +144,8 @@
 		</nav>
 		<div class="soc_icons navbar-right">
 			<ul class="list-unstyled text-center">
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="twitter.com/EngX_org"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="https://www.facebook.com/EngX.org/?fref=ts"><i class="fa fa-facebook"></i></a></li>
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 				<li><a href="#"><i class="fa fa-youtube"></i></a></li>
 				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -175,7 +175,7 @@
 {% endspaceless %}
 </ul>
 </div>
-{% endblock %}
+
 
 <div class="row"> 
     <div class="container">
@@ -213,7 +213,7 @@
 
 <footer>
 <div class="copy text-center">
-    <p class="link"><span>&#169; All rights reserved | mail to&nbsp;<a href="#"> engx@info.com</a></span></p>
+    <p class="link"><span>&#169; All rights reserved | mail to&nbsp;<a href="#">mohamed@engx.org</a></span></p>
 </div>
 </footer>
 
