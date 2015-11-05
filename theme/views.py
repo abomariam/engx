@@ -15,5 +15,6 @@ def home(request):
 
     context['articles'] = BlogCategory.objects.get(title='articles').blogposts.all().order_by('-created')[:3]
 
+    context['news'] = BlogCategory.objects.get(title='News').blogposts.all()[:4]
 
     return render(request,'index.html',context)

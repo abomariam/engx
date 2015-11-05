@@ -26,7 +26,7 @@
 
       {% for slide in slider %}
             <div class="item {% if forloop.counter0 == 0 %}active{% endif %}">
-                 <img src="{{ MEDIA_URL }}{% thumbnail slide.image.url 0 315 %}" >
+                 <img width="100%" src="{{ MEDIA_URL }}{% thumbnail slide.image.url 0 315 %}" >
                     <div class="carousel-caption">
                         <h3>{{ slide.title }}</h3>
                         <p>{{ slide.description }}</p>
@@ -78,10 +78,10 @@
 	                    {% endif %}
 	                    {% if event.location %}
 	                <b>Location: </b><a href="{% url "event_list_location" event.location.slug %}">{{ event.location }}</a><br/>
-                    <p>
-                        <b>Descriptipn: </b>
-                        {{ event.content|striptags|slice:":200" }}
-                    </p>
+                    <b>Descriptipn: </b><br/>
+                    <div class="event_content">
+                            {{ event.content|striptags|slice:":150" }}...
+                    </div>
 
 	           {% endif %}
                     <div class="register">
@@ -100,50 +100,27 @@
 	    		<h3>News</h3>
 	    	</div>
 	    </div>
+	    <br/><br/>
 
-	    <br/>
-		
+        {% for new in news %}
+
 		<div class="news">
-			<img src="{% static "images/news.jpg" %}" align="left" class="news_image">			  
-			<div >
-				<font size="3"> 
-					This is some text. This is some text. This is some text... <a href="#"> see more</a> 
-				</font>
-			</div>
-		</div>	
 
-		<br/>
-		<div class="news">
-			<img src="{% static "images/news.jpg" %}" align="left" class="news_image">			  
-			<div >
-				<font size="3"> 
-					This is some text. This is some text. This is some text... <a href="#"> see more</a> 
-				</font>
-			</div>
-		</div>	
+             {% if article.featured_image %}
+                  <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail new.featured_image 90 90 %}">
+             {% else %}
+                 <img class="img-responsive news_image" align="left" src="{% static "images/news.jpg" %}" />
+             {% endif %}
 
-		<br/>
-		<div class="news">
-			<img src="{% static "images/news.jpg" %}" align="left" class="news_image">			  
-			<div >
-				<font size="3"> 
-					This is some text. This is some text. This is some text... <a href="#"> see more</a> 
-				</font>
-			</div>
-		</div>	
+            <h5 class="news_title"><a href="{{ new.get_absolute_url }}">{{ new.title }}</a></h5>
+                <div class="rupees">
+                      {{ new.content|striptags|slice:":50"  }}...<a href="{{ new.get_absolute_url }}">see more</a>
+                </div>
+            <br/>
+		</div>
+        {% endfor %}
 
-		<br/>
-		<div class="news">
-			<img src="{% static "images/news.jpg" %}" align="left" class="news_image">			  
-			<div >
-				<font size="3"> 
-					This is some text. This is some text. This is some text... <a href="#"> see more</a> 
-				</font>
-			</div>
-		</div>	
-
-
-</div>
+    </div>
 
 
 <!-- articles -->
@@ -156,7 +133,8 @@
     		</div>
 
     		    {% for article in articles %}
-                <div class="col-md-4">
+                <div class="col-md-4 engx_event">
+                <br/>
                     <div class="grid_1_of_5 images_1_of_5">
                        {% if article.featured_image %}
                             <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail article.featured_image 90 90 %}">
@@ -166,31 +144,38 @@
 
                         <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
                         <div class="rupees">
-                            {{ article.content|striptags|slice:":200"  }}
+                             {{ article.content|striptags|slice:":150"  }}...
                         </div>
 
                         <div class="register">
-                            <h4><a href="#">Read more</a></h4>
+                            <h4><a href="{{ article.title }}">Read more</a></h4>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
                 </div>
     	<br/>
-        
+
 	</div>
 	
 	<!-- facebook page -->
-	<div class="row col-md-3 content_right title"   >
+	<div class="row col-md-3 content_right title "   >
 		<br/><br/>
 		<div class="content_top">
 	    	<div class="heading">
 	    		<h3>Facebook</h3>
 	    	</div>
-	    </div>	    
+	    </div>
 			<!-- facebook page		 -->
-		</div>
-	</div>	
+        <div class="fb-page" data-href="https://www.facebook.com/EngX.org/?fref=ts" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true">
+            <div class="fb-xfbml-parse-ignore">
+                <blockquote cite="https://www.facebook.com/EngX.org/?fref=ts">
+                    <a href="https://www.facebook.com/EngX.org/?fref=ts">Eng.X</a>
+                </blockquote>
+            </div>
+        </div>
+
+	</div>
 
 </div>
 

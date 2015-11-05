@@ -104,7 +104,19 @@
 </head>
 
 <body id="{% block body_id %}{% endblock %}" >
-	<div class="header_bg">
+{#	facebook include#}
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1562390960682498";
+        fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="header_bg">
 		<div class="container">
 			<div class="row header">
 
@@ -144,11 +156,12 @@
 		</nav>
 		<div class="soc_icons navbar-right">
 			<ul class="list-unstyled text-center">
-				<li><a href="twitter.com/EngX_org"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="https://www.facebook.com/EngX.org/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.facebook.com/EngX.org/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://www.twitter.com/EngX_org"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 				<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+
 			</ul>	
 		</div>
 	</div>

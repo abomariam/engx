@@ -928,8 +928,9 @@ p.padding {
 	padding-right: 5px;
 }
 .engx_event {
-   min-height: 450px;
+   min-height: 470px;
    border: 10px;
+   max-height: 800px;
 }
 
 .engx_event:hover {
@@ -939,9 +940,7 @@ p.padding {
     color: #326F6F;
     font-family: "ambleregular";
     font-size: 1em;
-    padding-top: 2px;
     padding-bottom: 2px;
-    margin-left: 15px;
 }
 .images_1_of_5 h2 a {
     color: #326F6F;
@@ -976,7 +975,8 @@ p.padding {
 	font-size:1.2em;
 	font-family: 'ambleregular';
 	color:#383838;
-	margin-right: 5px;
+	margin-right: 4px;
+    max-width: 700px;
 }
 
 .register{
@@ -1073,4 +1073,84 @@ p.padding {
     left: 10%;
     right: 10%;
 
+}
+
+.event_content {
+    padding-left: 25px;
+}
+
+.news_title {
+   color: #326F6F;
+}
+
+.event_map {
+    margin: 10px 5px 0px 0px;
+    display: inline-block;
+    color: #FFF;
+    background-color: #33cccc;
+    text-align: center;
+}
+
+.event_map a{
+	font-size:1.6em;
+	display: block;
+	padding:8px 8px;
+	font-family: 'ambleregular';
+	background:#3cc none repeat scroll 0% 0%;
+	color: #FFF;
+	text-decoration: none;
+	margin-right: 8px;
+}
+
+.event_map :hover{
+	font-size:1.6em;
+	display: block;
+	padding:8px 8px;
+	font-family: 'ambleregular';
+	background:#3cc none repeat scroll 0% 0%;
+	color: #FFF;
+	text-decoration: none;
+	margin-right: 8px;
+}
+
+
+a:hover {
+    color: #29a3a3;
+}
+
+.engx_link {
+    color: #29a3a3;
+}
+
+.engx_link a {
+    color: #29a3a3;
+}
+
+.btn-danger{
+    line-height: 2;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active{
+	background:#3cc none repeat scroll 0% 0%;
+	color: #FFF;
+}
+
+.calender {
+    margin-right: 5px;
+    padding:8px 10px;
+	background: #34c5c6 none repeat scroll 0% 0%;
+	color: #FFF;
+	text-decoration: none;
+	outline: 0;
+}
+
+.calender:hover {
+    padding:8px 10px;
+	background: #34c5c6 none repeat scroll 0% 0%;
+	color: #FFF;
+	text-decoration: none;
+	outline: 0;
 }

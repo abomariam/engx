@@ -14,22 +14,15 @@
 
 {% errors_for form %}
 
-<br/><br/><br/>
-
 <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
     <fieldset>
     <legend>{{ title }}</legend>
     {% fields_for form %}
-    <div>
-        {% block account_form_actions %}
-        <input class="btn btn-default btn-lg pull-right" type="submit" value="{{ title }}">
-        {% endblock %}
-    </div>
+        <div style="margin-left: 320px">
+            {% block account_form_actions %}
+                <input class="btn calender" type="submit" value="{{ title }}">
+            {% endblock %}
+        </div>
     </fieldset>
 </form>
 {% endblock %}
-
-
-
-
-

@@ -69,9 +69,10 @@
 {% endif %}
 
 {% block event_calendar %}
-<p><a href='{% icalendar_url %}' target="_blank" class="btn btn-default">
-    Subscribe to all events in Google Calendar/Outlook/iCal
-</a></p>
+   <div class="event_map">
+       <a id="author" href='{% icalendar_url %}'> Subscribe to all events in Google Calendar/Outlook/iCal</a>
+   </div>
+
 {% endblock %}
 
 {% for event in events.object_list %}
@@ -104,7 +105,7 @@
 
 {% block event_list_event_content %}
 {% editable event.content %}
-{{ event.description_from_content|safe }}
+<font size="3">{{ event.description_from_content|safe }}</font>
 {% endeditable %}
 {% endblock %}
 

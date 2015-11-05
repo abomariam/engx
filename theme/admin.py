@@ -12,11 +12,8 @@ class MyEventAdmin(EventAdmin):
     except:
         pass
 
-
-
 admin.site.unregister(Event)
 admin.site.register(Event, MyEventAdmin)
-
 
 
 class SliderAdmin(admin.ModelAdmin):

@@ -6,9 +6,17 @@ import os
 
 class UserProfile(models.Model):
     user = models.OneToOneField("auth.User",related_name='profile')
-    # date_of_birth = models.DateField(null=True)
     cv = models.FileField(null=True,upload_to='cvs')
     img = models.ImageField(null=True,upload_to='pics')
+    age = models.IntegerField
+
+    # date_of_birth = models.DateField(null=True)
+    # first_name = models.CharField(max_length=35)
+    # last_name = models.CharField(max_length=35)
+    # user_name = models.CharField
+    # mail = models.CharField
+    # faculty = models.CharField
+
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
